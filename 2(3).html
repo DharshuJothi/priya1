@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Beautiful Lists & Table</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #444;
+        }
+        
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #5c9ead;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 0 20px;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+        .navbar a:hover {
+            color: #ffebcd;
+        }
+
+        /* Sections */
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 50px 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .section:nth-child(odd) {
+            background: #f7f9fc;
+        }
+        .section:nth-child(even) {
+            background: #e0f7fa;
+        }
+
+        /* List Card Styles */
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            text-align: center;
+            margin: 20px;
+        }
+        .card ul, .card ol {
+            text-align: left;
+            padding: 15px;
+            font-size: 18px;
+        }
+        .card li {
+            padding: 8px;
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: fadeInLeft 0.5s forwards;
+        }
+        .card li:nth-child(1) { animation-delay: 0.2s; }
+        .card li:nth-child(2) { animation-delay: 0.4s; }
+        .card li:nth-child(3) { animation-delay: 0.6s; }
+        .card li:nth-child(4) { animation-delay: 0.8s; }
+        .card li:nth-child(5) { animation-delay: 1s; }
+
+        @keyframes fadeInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Table Card Styles */
+        .table-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background: #5c9ead;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="#ordered-list">Ordered List</a>
+        <a href="#unordered-list">Unordered List</a>
+        <a href="#table-section">Data Table</a>
+    </div>
+
+    <!-- Ordered List Section -->
+    <section id="ordered-list" class="section">
+        <h1>📌 Ordered List (Numbered)</h1>
+        <div class="card">
+            <ol>
+                <li>Introduction to HTML</li>
+                <li>Understanding CSS</li>
+                <li>Learning JavaScript</li>
+                <li>Working with APIs</li>
+                <li>Building Web Applications</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Unordered List Section -->
+    <section id="unordered-list" class="section">
+        <h1>🔹 Unordered List (Bullets)</h1>
+        <div class="card">
+            <ul>
+                <li>HTML Tags</li>
+                <li>CSS Styling</li>
+                <li>Responsive Design</li>
+                <li>Animations</li>
+                <li>Deployment</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Table Section -->
+    <section id="table-section" class="section">
+        <h1>📊 Data Table</h1>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sl. No.</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Occupation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Jane Doe</td>
+                        <td>28</td>
+                        <td>Designer</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>John Smith</td>
+                        <td>34</td>
+                        <td>Developer</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Emily Johnson</td>
+                        <td>25</td>
+                        <td>Content Writer</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Michael Brown</td>
+                        <td>30</td>
+                        <td>Project Manager</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Linda Davis</td>
+                        <td>29</td>
+                        <td>Marketing Specialist</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- JavaScript for Scroll Animations -->
+    <script>
+        document.addEventListener("scroll", function() {
+            let sections = document.querySelectorAll(".section");
+            sections.forEach(section => {
+                let position = section.getBoundingClientRect().top;
+                let screenPosition = window.innerHeight / 1.3;
+                if (position < screenPosition) {
+                    section.classList.add("visible");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
